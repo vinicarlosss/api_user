@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/api-user
+    username: postgres
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: validate
+server:
+  error:
+    include-message: always
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
