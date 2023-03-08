@@ -11,6 +11,7 @@ public class IncluirUsuarioMapper {
     public static Usuario toEntity(UsuarioRequest request) {
         Usuario entity = new Usuario();
         entity.setNome(request.getNome());
+        entity.setTelefone(request.getTelefone());
         entity.setEmail(request.getEmail());
         entity.setFotoUrl(request.getFotoUrl());
         entity.setFuncao(request.getFuncao());

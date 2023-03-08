@@ -25,12 +25,11 @@ public class UsuarioController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public UsuarioResponse incluir(@Valid  @RequestBody UsuarioRequest request) {
+    public UsuarioResponse incluir(@RequestBody UsuarioRequest request) {
         return incluirUsuarioService.incluir(request);
     }
 
     @PutMapping("/alterar/{idUsuario}")
-    @Secured({"ROLE_USUARIO", "ROLE_ADMIN"})
     @ResponseStatus(CREATED)
     public AlterarUsuarioResponse alterar(@PathVariable Long idUsuario, @Valid @RequestBody AlterarUsuarioRequest request){
         return alterarUsuarioService.alterar(idUsuario, request);
