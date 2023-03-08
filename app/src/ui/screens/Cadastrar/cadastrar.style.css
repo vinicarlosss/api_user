@@ -1,4 +1,4 @@
-.login__main{
+.cadastrar__main{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,32 +7,33 @@
     height: 100vh;
 }
 
-.login__form{
+.cadastrar__form{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding: 10px;
-    height: 300px;
+    height: 500px;
 }
 
-.login__form--label{
+.cadastrar__form--label{
     font-weight: bold;
 }
 
-.login__form--input{
+.cadastrar__form--input{
     height: 30px;
     width: 250px;
     border-radius: 200px;
 }
 
-.login__form--error{
+.cadastrar__form--error{
     color: #ff0000;
     font-weight: bold;
     font-size: 15px;
 }
 
-.login__form--button{
+.cadastrar__form--button{
     width: 130px;
     height: 40px;
+    margin: 10px 0;
 }

@@ -10,5 +10,9 @@ export const router = createBrowserRouter([
     {
         path: "/perfil",
         element: <PrivateRoute Screen={uiScreens.Perfil}/>
+    },
+    {
+        path: "/cadastrar",
+        element: <uiScreens.Cadastrar/>
     }
 ])

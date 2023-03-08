@@ -55,6 +55,7 @@ export function Login() {
                     <p className="login__form--error">{formInput.erro}</p>
                     <button className="login__form--button">Entrar</button>
                 </form>
+                <button onClick={()=>navigate("/cadastrar")} className="login__form--button">Cadastrar</button>
             </main>
         </>
     )
