@@ -3,8 +3,10 @@ package br.com.cwi.apiuser.controller;
 import br.com.cwi.apiuser.controller.request.AlterarUsuarioRequest;
 import br.com.cwi.apiuser.controller.request.UsuarioRequest;
 import br.com.cwi.apiuser.controller.response.AlterarUsuarioResponse;
+import br.com.cwi.apiuser.controller.response.DetalharUsuarioResponse;
 import br.com.cwi.apiuser.controller.response.UsuarioResponse;
 import br.com.cwi.apiuser.service.AlterarUsuarioService;
+import br.com.cwi.apiuser.service.DetalharUsuarioService;
 import br.com.cwi.apiuser.service.IncluirUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -22,6 +24,8 @@ public class UsuarioController {
     private IncluirUsuarioService incluirUsuarioService;
     @Autowired
     private AlterarUsuarioService alterarUsuarioService;
+    @Autowired
+    private DetalharUsuarioService detalharUsuarioService;
 
     @PostMapping
     @ResponseStatus(CREATED)
@@ -35,11 +39,10 @@ public class UsuarioController {
         return alterarUsuarioService.alterar(idUsuario, request);
     }
 
-   /* @GetMapping("/detalhar/{idUsuario}")
-    @Secured({"ROLE_USUARIO", "ROLE_ADMIN"})
+   @GetMapping("/detalhar/me")
     @ResponseStatus(CREATED)
-    public DetalharUsuarioResponse detalhar(@PathVariable Long idUsuario){
-        return detalharUsuarioService.detalhar(idUsuario);
-    }*/
+    public DetalharUsuarioResponse detalhar(){
+        return detalharUsuarioService.detalhar();
+    }
 }
 
