@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import * as uiScreens from '../ui/screens/index'
+import * as uiScreens from '../ui/index'
 
 export const router = createBrowserRouter([
     {
