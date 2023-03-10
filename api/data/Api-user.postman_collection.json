@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "1c2ef445-c2a0-49f9-866f-bb895b71a223",
+		"name": "Api-user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25728974"
+	},
+	"item": [
+		{
+			"name": "incluir usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Carlos Vinícius Martins da Silva\",\r\n    \"telefone\": \"81979059036\",\r\n    \"email\": \"carlos.vinicius@cwi.com.br\",\r\n    \"senha\": \"1998ronca\",\r\n    \"fotoUrl\": \"fotourl.com.br\",\r\n    \"funcao\": \"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alterar usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Carlos Vinícius\",\r\n    \"email\": \"carlos.martins@cwi.com.br\",\r\n    \"telefone\": \"82979059036\",\r\n    \"senha\": \"1998.ronca\",\r\n    \"fotoUrl\": \"Novafoto.url.com\",\r\n    \"funcao\": \"USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/alterar/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"alterar",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1998.ronca",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "carlos.martins@cwi.com.br",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detalhar usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usuarios/detalhar/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"detalhar",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token de troca de senha",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"carlos.martins@cwi.com.br\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/forgot-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"forgot-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"1998\",\r\n    \"token\": \"MTY3ODQ4OTQ1ODc4Njo5M2M2MDVjNjc4M2NkMTI3NjJiMTk3MTc4MWY0MDQxYWQ3NTYyZDI4OThkNWM0NGU1YWQxYTQzYThmZTU5YWQwOmNhcmxvcy5tYXJ0aW5zQGN3aS5jb20uYnI6Y2I3OGFkNTQ1NjBmMWE2ZDBjOWZkOWFkZTY1NTA5OGFhZTMxMzgzMDdhNmQ1ZjMyZjgxNjVlZWRlNzVhODgyNTMwZTEyYTM3YTk2ODVlN2M3NDBkMDRjNTMwNWRhMzE2MzYxOWE0OGU2OWYyMjU5NzUzNzYyZmQwY2Y2MmViMzk=\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/change-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"change-password"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
