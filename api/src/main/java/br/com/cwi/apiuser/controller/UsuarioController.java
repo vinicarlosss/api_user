@@ -66,15 +66,20 @@ public class UsuarioController {
     @PostMapping("/forgot-password")
     public void forgotPassword(@RequestBody @Valid PasswordResetRequest request){
         Optional<Usuario> optionalUsuario = usuarioRepository.findByEmail(request.getEmail());
-        optionalUsuario.ifPresent(user ->{
-            String token = userPasswordService.generateToken(user);
-            String content = emailService. getContent(token);
-            try{
-                emailService.sendEmailToClient("Alteração de senha", request.getEmail(), content);
-            }catch (MessagingException e){
-                throw new ResponseStatusException(BAD_REQUEST, "Não foi possível enviar o email");
-            }
-        });
+        if(optionalUsuario.isPresent()){
+            optionalUsuario.ifPresent(user ->{
+                String token = userPasswordService.generateToken(user);
+                String content = emailService. getContent(token);
+                try{
+                    emailService.sendEmailToClient("Alteração de senha", request.getEmail(), content);
+                }catch (MessagingException e){
+                    throw new ResponseStatusException(BAD_REQUEST, "Não foi possível enviar o email");
+                }
+            });
+        }else{
+            throw new ResponseStatusException(BAD_REQUEST, "Email não encontrado");
+        }
+
     }
 
     @PostMapping("/change-password")
