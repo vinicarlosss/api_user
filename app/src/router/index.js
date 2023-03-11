@@ -14,5 +14,13 @@ export const router = createBrowserRouter([
     {
         path: "/cadastrar",
         element: <uiScreens.Cadastrar/>
+    },
+    {
+        path: "/esqueci-senha",
+        element: <uiScreens.EsqueciSenha/>
+    },
+    {
+        path: "/change-password",
+        element: <uiScreens.AlterarSenha/>
     }
 ])

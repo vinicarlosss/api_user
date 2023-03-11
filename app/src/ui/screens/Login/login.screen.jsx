@@ -13,13 +13,12 @@ export function Login() {
     async function handleSubmit(event) {
         try {
             event.preventDefault()
-            const response = await login({ username: formInput.email, password: formInput.senha })
+            await login({ username: formInput.email, password: formInput.senha })
             setFormInput(oldFormInput => ({
                 ...oldFormInput,
                 erro: ''
             }))
-            let user = { email: formInput.email }
-            setUser(user)
+            setUser({ email: formInput.email })
         } catch (error) {
             setFormInput(oldFormInput => ({
                 ...oldFormInput,
@@ -40,7 +39,7 @@ export function Login() {
         if (user) {
             navigate("/perfil")
         }
-    }, [user])
+    }, [user, navigate])
     return (
         <>
             <main className="login__main">
@@ -55,7 +54,11 @@ export function Login() {
                     <p className="login__form--error">{formInput.erro}</p>
                     <button className="login__form--button">Entrar</button>
                 </form>
-                <button onClick={()=>navigate("/cadastrar")} className="login__form--button">Cadastrar</button>
+                <div className="button-box">
+                    <button onClick={() => navigate("/cadastrar")} className="login__form--button">Cadastrar</button>
+                    <button onClick={()=> navigate("/esqueci-senha")} className="login__form--button">Esqueci minha senha</button>
+                </div>
+
             </main>
         </>
     )

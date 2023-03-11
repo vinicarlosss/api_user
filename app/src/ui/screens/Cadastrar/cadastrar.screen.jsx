@@ -48,7 +48,6 @@ export function Cadastrar() {
 
     return (
         <>
-        {console.log(formInput)}
             <main className="cadastrar__main">
                 <form className="cadastrar__form" onSubmit={handleSubmit}>
                     <header className="cadastrar__form--header">

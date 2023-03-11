@@ -36,3 +36,9 @@
     width: 130px;
     height: 40px;
 }
+
+.button-box{
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+}
